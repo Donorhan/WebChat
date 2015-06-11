@@ -3,7 +3,7 @@
 */
 function Application()
 {
-	this.lag = 750;	///< Add a lag of 750ms for the simulation.
+    this.lag = 750; ///< Add a lag of 750ms for the simulation.
 }
 
 /**
@@ -12,7 +12,7 @@ function Application()
 */
 Application.prototype.setLag = function( value )
 {
-	this.lag = value;
+    this.lag = value;
 }
 
 /**
@@ -23,18 +23,18 @@ Application.prototype.setLag = function( value )
 */
 Application.prototype.buildConversation = function( userA, userB )
 {
-	if( userA == userB )
-		return false;
+    if( userA == userB )
+        return false;
 
-	// Create default windows.
-	var chatA = new Chat(userA, userB);
-	var chatB = new Chat(userB, userA);
+    // Create default windows.
+    var chatA = new Chat(userA, userB);
+    var chatB = new Chat(userB, userA);
 
-	if( !chatA || !chatB )
-		return false;
+    if( !chatA || !chatB )
+        return false;
 
-	// Link chats.
-	chatA.setReceiver(chatB);
+    // Link chats.
+    chatA.setReceiver(chatB);
 
-	return chatA.createView("application") && chatB.createView("application");
+    return chatA.createView("application") && chatB.createView("application");
 }
